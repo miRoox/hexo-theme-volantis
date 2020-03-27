@@ -161,7 +161,7 @@ layout:
     # 列表中每一篇文章的meta信息
     meta: [title, author, category, date, wordcount, top]
     # 列表类页面的侧边栏
-    sidebar: [blogger, category, tagcloud, qrcode]
+    sidebar: [blogger, bulletin, category, tagcloud]
     # read more button
     readmore: Read More <i class="fas fa-chevron-right"></i>
   # 页面布局
@@ -172,14 +172,14 @@ layout:
     # 其中，title只在header中有效，music和thumbnail无需在这里设置，文章中有则显示
     # 如果tags放置在meta.header中，那么在post列表中不显示（因为卡片下方已经有了）
     meta:
-      header: [title, author, category, date, top]
-      footer: [updated, tags, btns, share]
+      header: [title, author, category, date, wordcount, top]
+      footer: [updated, tags]
     # 文章页面的侧边栏
-    sidebar: [qrcode, toc]
+    sidebar: [bulletin, toc]
   # 文章布局，参数继承自 on_page
   on_post:
     # 文章页脚，自动在每一篇文章末尾添加
-    article_footer: [references, related_repos, copyright, donate]
+    article_footer: [copyright]
   # 其他的页面布局暂时等于 on_list
 
 
@@ -356,6 +356,13 @@ widget:
 
   # You can add your own widget here or 'blog/source/_data/widget.yml'
   # class: text, list, grid, qrcode, page, ... see more at https://volantis.js.org/
+  bulletin:
+    class: text
+    display: [desktop]
+    header:
+      icon: fas fa-bell
+      title: 布告板
+      content: []
 
 
 
