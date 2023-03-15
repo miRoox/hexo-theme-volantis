@@ -44,7 +44,7 @@ symbol:
 
 kill:
   title: "抱歉，您的瀏覽器無法訪問本站"
-  more: "了解詳情 >"
+  more: "了解詳情 &gt;"
   noscript: "本頁面需要瀏覽器支持（啟用）JavaScript"
   ie: "微軟已經於2016年終止了對 Internet Explorer (IE) 10 及更早版本的支持，<br/>繼續使用存在極大的安全隱患，請使用當代主流的瀏覽器進行訪問。"
 

@@ -48,7 +48,7 @@ symbol:
 
 kill:
   title: "Sorry, your browser cannot access this site"
-  more: "Learn more >"
+  more: "Learn more &gt;"
   noscript: "This page requires browser support (enable) JavaScript"
   ie: "Microsoft has terminated support for Internet Explorer (IE) 10 and earlier versions in 2016. <br/>There are great security risks to continue using it. Please use contemporary mainstream browsers to access."
 
