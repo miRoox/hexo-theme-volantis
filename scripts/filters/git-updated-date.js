@@ -11,7 +11,7 @@ hexo.extend.filter.register('before_post_render', data => {
     data.updated = gitUpdated;
   }
   return data;
-});
+}, 100);
 
 function getUpdated(data) {
   const filePath = path.resolve(hexo.config.source_dir, data.source);
