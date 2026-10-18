@@ -1,0 +1,227 @@
+// 图库画廊样式（gallery tag plugin）
+// v5
+div.gallery
+  margin: $gap-p 0
+  overflow: hidden
+  $sp = 1px
+  &+.gallery
+    margin-top: 0 - $gap-p
+  // 单个画廊项：flex 布局 + 悬停显示标题
+  >.fancybox,>p>.fancybox
+    margin: $sp
+    padding: 0
+    position: relative
+    a
+      height: 100%
+      width: 100%
+    img
+      object-fit: cover
+      height: 100%
+      width: 100%
+    .image-caption
+      opacity: 0
+      transform: translateY(100%)
+      transition: all 0.3s ease
+      pointer-events: none
+      position: absolute
+      width: 100%
+      bottom: 0
+      text-align: center
+      background: rgba(0, 0, 0, 0.3)
+      color: #fff
+      &:empty
+        display:none
+    &:hover
+      .image-caption
+        opacity: 1
+        transform: translateY(0)
+  &,>p
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: nowrap
+    padding: 0 !important
+    align-items: stretch
+  // 多列布局：col 属性控制列数（2-8列）
+  &[col]
+    flex-wrap: wrap
+    justify-content: flex-start
+  &[col='2']>.fancybox
+    width: "calc(50% - 2 * %s)" % $sp
+  &[col='3']>.fancybox
+    width: "calc(33.33% - 2 * %s)" % $sp
+  &[col='4']>.fancybox
+    width: "calc(25% - 2 * %s)" % $sp
+  &[col='5']>.fancybox
+    width: "calc(20% - 2 * %s)" % $sp
+  &[col='6']>.fancybox
+    width: "calc(16.66% - 2 * %s)" % $sp
+  &[col='7']>.fancybox
+    width: "calc(14.2857% - 2 * %s)" % $sp
+  &[col='8']>.fancybox
+    width: "calc(12.5% - 2 * %s)" % $sp
+  >p
+    margin: 0
+  // 对齐方式：左/中/右 + 拉伸
+  &.left,&.left>p
+    justify-content: flex-start
+  &.center,&.center>p
+    justify-content: center
+  &.right,&.right>p
+    justify-content: flex-end
+  &.stretch,&.stretch>p
+    align-items: stretch
+
+// Fancybox 灯罩容器：点击缩放查看
+.fancybox-container
+  .fancybox-stage
+    cursor: zoom-out
+// 独立 fancybox 容器（非 gallery 内联）
+div.fancybox
+  margin-top: $gap-p
+  margin-bottom: $gap-p
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  flex-wrap: nowrap
+  padding: 0 !important
+  overflow: hidden
+  border-radius: 2px
+  @media screen and (max-width: $device-mobile)
+    border-radius: 1px
+  a
+    line-height: 0
+    margin: 0 auto
+    align-items: stretch
+  .gallery
+    overflow: hidden
+  .image-caption
+    font-size: $fontsize-code
+    padding-top: $gap-p * 0.5
+    padding-bottom: $gap-p
+    color: var(--color-meta)
+    &:empty
+      display: none
+
+// v6
+.tag-plugin.gallery
+  .grid-cell,.flow-cell
+    display: block
+    overflow hidden
+    z-index 0
+    position: relative
+    &:hover
+      .image-meta
+        background: rgba(black, 0.5)
+      .image-caption
+        color: white
+  img 
+    object-fit: cover
+    max-height: 100%
+    display: block
+  .image-meta
+    position: absolute
+    z-index: 1
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    pointer-events: none
+    background: transparent
+    trans1(background)
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    .image-caption
+      display: block
+      font-size: $fs-13
+      color: transparent
+      pointer-events: none
+      line-height: 1.2
+      margin: 0.5rem
+      trans1(color)
+      text-align: left
+      &:empty
+        display: none
+
+.tag-plugin.gallery .grid-cell
+  >img
+    trans1(transform, 0.5s)
+  &:hover
+    >img
+      transform: scale(1.1)
+    
+
+// 网格布局
+.tag-plugin.gallery.grid-box
+  display: grid
+  .grid-cell
+    corner-shape: superellipse(1.2)
+  &[size='xs']
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr))
+    grid-gap: 2px
+    .grid-cell,img
+      border-radius: 2px
+    .image-caption
+      font-size: $fs-12
+  &[size='s']
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
+    grid-gap: 2px
+    .grid-cell,img
+      border-radius: 2px
+  &[size='m']
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
+    grid-gap: 4px
+    .grid-cell,img
+      border-radius: 4px
+  &[size='l']
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+    grid-gap: 8px
+    .grid-cell,img
+      border-radius: 8px
+  &[size='xl'] // 2列
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 16px
+    .grid-cell,img
+      border-radius: 16px
+  &[size='mix'] // 1张大图+2张小图
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
+    grid-gap: 4px
+    .grid-cell,img
+      border-radius: 4px
+    .grid-cell
+      &:nth-child(3n+1)
+        grid-column: auto / span 2
+        grid-row: auto / span 2
+  &[ratio='square']
+    .grid-cell
+      aspect-ratio: 1
+  &[ratio='portrait']
+    .grid-cell
+      aspect-ratio: 2 / 3
+  .grid-cell
+    background: var(--block)
+    img  
+      width: 100%
+      height: 100%
+
+// 瀑布流布局
+.tag-plugin.gallery.flow-box
+  column-count: 3
+  column-gap: 8px
+  .flow-cell
+    border-radius: 8px
+    padding-bottom: 8px
+    img  
+      width: 100%
+      height: 100%
+      border-radius: 8px
+    &:has(img.loading),&:has(img.error)
+      background-color: var(--block)
+      img
+        background-color: var(--block)
+  .image-meta
+    border-radius: 8px
+    margin-bottom: 8px
+    

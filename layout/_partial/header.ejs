@@ -3,7 +3,7 @@
   <div id='wrapper'>
     <div class='nav-sub'>
       <p class="title"></p>
-      <ul class='switcher nav-list-h m-phone'>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
         <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self" title="comment"></a></li>
         <% if (page.sidebar == undefined || page.sidebar != false) { %>
           <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self" title="toc"></a></li>
@@ -15,7 +15,7 @@
         <% let logo = theme.navbar.logo %>
         <a class="title flat-box" target="_self" href='<%- url_for("/") %>'>
           <% if (logo.img) { %>
-            <img no-lazy class='logo' src='<%- logo.img %>'/>
+            <img no-lazy alt="logo" class='logo' src='<%- logo.img %>'/>
           <% } %>
           <% if (logo.icon) { %>
             <i class='<%- logo.icon %>'></i>

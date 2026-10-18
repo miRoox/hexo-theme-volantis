@@ -1,3 +1,4 @@
+// 鼠标指针
 $text = url(hexo-config('custom_css.cursor.text'))
 $pointer = url(hexo-config('custom_css.cursor.pointer'))
 $default = url(hexo-config('custom_css.cursor.default'))
@@ -42,7 +43,7 @@ a:not([href]) p,
 button[disabled],html input[disabled],
 .article .widget,
 #l_body .post section.meta .new-meta-box .new-meta-item .notlink,
-ul.list-v.rightmenu a,
+#rightmenu-wrapper ul.list-v.rightmenu a,
 span.btn a:not([href]),
 div.tabs ul.nav-tabs li.tab.active a,
 kbd,
@@ -70,7 +71,8 @@ input[type=submit],
 table::-webkit-scrollbar-thumb,
 scrollbar::-webkit-scrollbar-thumb,
 #scroll-down,
-ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar,
+#rightmenu-wrapper .aplayer-volume-bar,
+#rightmenu-wrapper li.music.ctrl a,
 #u-search .modal .modal-header .btn-close,
 #u-search .modal .modal-footer .nav,
 article .checkbox input,

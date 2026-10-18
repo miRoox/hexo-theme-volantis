@@ -1,3 +1,4 @@
+<%# 友链页面 %>
 <%- partial('_pre') %>
 <div id="l_main" class='<%- page.sidebar == false ? ' no_sidebar' : '' %>'>
   <article id="<%= page.layout %>" class="md post article article-entry l_friends white-box reveal <%- theme.custom_css.body.effect.join(' ') %> article-type-<%= page.layout %>" itemscope itemprop="blogPost">
@@ -17,11 +18,12 @@
             <div class='friend-content'>
               <% getList(group.items).forEach(function(item){ %>
                 <% if (item.url && item.title) { %>
-                  <a class='friend-card'
-                    target="_blank" rel="external noopener noreferrer" href="<%- url_for(item.url || '/') %>">
+                  <a class='friend-card<% if (theme.pages.friends.link_block_color.enable === true && item.color) { %> color-bk-dark<% } %>' target="_blank" rel="external noopener noreferrer" href="<%- url_for(item.url || '/') %>" <% if (theme.pages.friends.link_block_color.enable === true && item.color) { %>style="<% if (item.color) { %>background-color: <%- item.color %>;<% } %> <% if (theme.pages.friends.link_block_color.unified_font === true) { %>color: var(--link-color);<% } else { %><% if (item.color) { %>color: var(--link-color);<% } %><% } %>"
+                  <% } %>
+                  >
                     <div class='friend-left'>
                       <% if (item.avatar) { %>
-                        <img class='avatar' src='<%- item.avatar || (theme.plugins.lazyload && theme.plugins.lazyload.loadingImg) %>'/>
+                        <img alt="avatar" class='avatar' src='<%- item.avatar || (theme.plugins.lazyload && theme.plugins.lazyload.loadingImg) %>'/>
                       <% } %>
                     </div>
                     <div class='friend-right'>
@@ -47,8 +49,10 @@
             <div class='simpleuser-group'>
               <% getList(group.items).forEach(function(item){ %>
                 <% if (item.url && item.title) { %>
-                  <a class="simpleuser" target="_blank" rel="external noopener noreferrer" href="<%- url_for(item.url || '/') %>">
-                    <img src="<%- item.avatar || (theme.plugins.lazyload && theme.plugins.lazyload.loadingImg) %>"/>
+                  <a class="simpleuser<% if (theme.pages.friends.link_block_color.enable === true && item.color) { %> color-bk-dark<% } %>" target="_blank" rel="external noopener noreferrer" href="<%- url_for(item.url || '/') %>" <% if (theme.pages.friends.link_block_color.enable === true && item.color) { %>style="<% if (item.color) { %>background-color: <%- item.color %>;<% } %> <% if (theme.pages.friends.link_block_color.unified_font === true) { %>color: var(--link-color);<% } else { %><% if (item.color) { %>color: var(--link-color);<% } %><% } %>"
+                  <% } %>
+                  >
+                    <img alt="avatar" src="<%- item.avatar || (theme.plugins.lazyload && theme.plugins.lazyload.loadingImg) %>"/>
                     <span><%- item.title %></span>
                   </a>
                 <% } %>

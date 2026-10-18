@@ -1,10 +1,5 @@
-:root
-  // tag plugin from stellar
-  --block-hover: mix($c-block-light, $c-text-light, 98)
-  --text-p1: $c-text-light
-  --text-p3: mix($c-text-light, $c-site-bg-light, 60)
-  --card: $c-card-light
-
+stellar-root-async()
+// 文本选中样式
 ::-moz-selection {
   background: $color-selection
 }
@@ -13,7 +8,7 @@
   background: $color-selection
 }
 
-
+// 标题字号
 h1
   font-size: $fontsize-h1
 h2
@@ -30,6 +25,7 @@ h6
 h1,h2,h3,h4,h6
   font-weight: normal
 
+// 基础元素样式
 a
   &:not([href])
     cursor: default
@@ -41,6 +37,7 @@ pre
   -o-tab-size: 4
   -webkit-tab-size: 4
 
+// 工具类
 .clearfix
   zoom: 1
   &:before,&:after
@@ -54,15 +51,18 @@ pre
   visibility: hidden
   display: none
 
+// 布局基础
 .inner
   position: relative
   width: 80%
   max-width: 710px
   margin: 0 auto
+
 .vertical
   display: table-cell
   vertical-align: middle
 
+// HTML5 元素
 article,aside,details,figcaption,figure,footer,hgroup,main,menu,nav,section,summary
   display: block
 
@@ -105,6 +105,7 @@ span.dot:before
 span.sep:before
   content: '/'
 
+// 代码字体
 code,kbd,pre,samp
   font-family: monospace, monospace
   font-size: 1em
@@ -114,6 +115,7 @@ optgroup,select,textarea
   font: inherit /* 2 */
   margin: 0 /* 3 */
 
+// 表单元素
 select
   text-transform: none
 
@@ -170,7 +172,7 @@ textarea
 optgroup
   font-weight: bold
 
-
+// 无类名表格
 table:not([class])
   border-collapse: collapse
   overflow: auto
@@ -178,18 +180,18 @@ table:not([class])
   max-width: 100%
   vertical-align: text-top
   th
-    background-color: darken($color-block, 2)
+    background-color: var(--color-block-darken2)
   td,th
     padding: 8px 16px
-    border: 2px solid darken($color-block, 2)
+    border: 2px solid var(--color-block-darken2)
     line-height: 1.5
     font-size: 90%
   tr
     word-break: keep-all
-    background-color: lighten($color-block, 3)
+    background-color: var(--color-block-lighten3)
     trans()
     &:hover
-      background-color: darken($color-block, 2)
+      background-color: var(--color-block-darken2)
 
 
 td,th

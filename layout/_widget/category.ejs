@@ -1,6 +1,6 @@
 <% if (site.categories.length){ %>
   <%- partial('_pre') %>
-  <section class="widget <%- item.class %> <%- page.widget_platform %>">
+  <section class="widget <%- page.widget_style %>">
     <%- partial('header', {item: item}) %>
     <div class='content'>
       <ul class="entry navigation">
@@ -13,4 +13,8 @@
       </ul>
     </div>
   </section>
+<% }else{ %>
+  <div class="<%- page.widget_pjax %>">
+    <!-- pjax占位 category-->
+  </div>
 <% } %>

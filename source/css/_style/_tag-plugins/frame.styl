@@ -1,3 +1,4 @@
+// v5
 .md .frame-wrap
   position: relative
   overflow: hidden
@@ -53,3 +54,22 @@
       .frame
         width: 238px
         height: 476px
+// v6
+.md .tag-plugin.img-wrap .frame-wrap
+  &[focus]
+    height: auto
+
+.md .frame-wrap
+  &[focus='top']
+    img,video
+      margin-bottom: 0 !important
+  &:not([focus='bottom'])
+    .frame
+      top: 0
+  &[focus='bottom']
+    img,video
+      bottom: 0
+      margin-top: 0 !important
+    .frame
+      bottom: 0
+

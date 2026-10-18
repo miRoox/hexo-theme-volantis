@@ -1,3 +1,23 @@
+/**
+ * 上次修改更新：5.0 | https://github.com/volantis-x/hexo-theme-volantis
+ *
+ */
+/*
+{% btns 样式参数 %}
+{% cell 标题::链接::图片或者图标 %}
+{% cell 标题::链接::图片或者图标 %}
+{% endbtns %}
+
+{% btns circle grid5 %}
+{% cell xaoxuu::https://xaoxuu.com::https://gcore.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %}
+{% cell xaoxuu::https://xaoxuu.com::https://gcore.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %}
+{% cell xaoxuu::https://xaoxuu.com::https://gcore.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %}
+{% cell xaoxuu::https://xaoxuu.com::https://gcore.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %}
+{% cell xaoxuu::https://xaoxuu.com::https://gcore.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png %}
+{% endbtns %}
+
+
+*/
 'use strict';
 
 function postBtns(args, content) {
@@ -7,10 +27,10 @@ function postBtns(args, content) {
 }
 
 function postCell(args, content) {
-  if(/::/g.test(args)){
+  if (/::/g.test(args)) {
     args = args.join(' ').split('::');
   }
-  else{
+  else {
     args = args.join(' ').split(',');
   }
   let text = args[0] || '';
@@ -36,5 +56,5 @@ function postCell(args, content) {
 
 }
 
-hexo.extend.tag.register('btns', postBtns, {ends: true});
+hexo.extend.tag.register('btns', postBtns, { ends: true });
 hexo.extend.tag.register('cell', postCell);

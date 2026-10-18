@@ -1,4 +1,5 @@
 // 异步加载的暗黑模式 强制覆盖样式
+// 外层有工具函数 volantis-dark(ondark)
 
 fa-solid,
 fa-regular,
@@ -24,7 +25,7 @@ img,
   color: var(--color-p) !important
   &:hover
     color: var(--color-list-hl) !important
-.note
+.note.v5
   background: var(--color-block) !important
 div.tabs ul.nav-tabs li.tab.active a
   color: var(--color-p)
@@ -34,15 +35,12 @@ kbd
 .cover-wrapper.dock .menu .list-h a:hover, .cover-wrapper.featured .menu .list-h a:hover, .cover-wrapper.focus .menu .list-h a:hover
   color: var(--color-text) !important
 
-//highlight
-if hexo-config('plugins.code_highlight') == "highlightjs"
-  .gutter
-    background: var(--color-card) !important
-    background-color: var(--color-card) !important
-  .highlight figcaption
-    background-color: #14161a
-  .highlight pre .line, .highlight pre .params
-    color: rgba(158, 142, 142, 0.9)
+details[v5]>summary
+  color: var(--color-p) !important
+  background: var(--color-site-bg) !important
+details[v5]
+  border: 1px solid var(--color-site-bg) !important
+  background: var(--color-site-bg) !important
 
 //table
 *:not(.highlight) >table tr
@@ -53,6 +51,8 @@ if hexo-config('plugins.code_highlight') == "highlightjs"
   border-color: var(--color-site-bg)
 *:not(.highlight) >table tr:hover
   background: var(--color-codeblock)
+.timenode-v5 .highlight
+  border-color: var(--color-site-bg) !important
 .timenode .highlight
   border-color: var(--color-site-bg) !important
 blockquote p
@@ -67,63 +67,13 @@ blockquote p
 .btn-copy:hover
   background: var(--color-site-body)
 
-if hexo-config('comments.service')=='gitalk'
-  .gt-container .gt-header-textarea
-    background-color: var(--color-card)
-    &:hover
-      background-color: var(--color-block)
-  .gt-container .gt-comment-content
-    background-color: var(--color-card)
-    &:hover
-      box-shadow: none
-  .gt-container .gt-comment-admin .gt-comment-content
-    background-color: var(--color-card)
+// friend card
+.friend-card.color-bk-dark
+  filter: brightness(0.8)
 
-if hexo-config('plugins.aplayer.enable')
-  .aplayer
-    background: var(--color-site-bg)
-  .aplayer .aplayer-list ol li:hover
-    background: rgba($color-theme,.2)
-  .aplayer .aplayer-list ol li.aplayer-list-light
-    background: var(--color-block)
-  .aplayer-info
-    background: var(--color-site-bg) !important
-  .aplayer .aplayer-lrc:before
-    background: linear-gradient(180deg,#282c34 0,hsla(0,0%,100%,0))
-  .aplayer .aplayer-lrc:after
-    background: linear-gradient(180deg,hsla(0,0%,0%,0) 0,hsla(0,0%,13%,.8))
-  .aplayer-pic
-    filter: brightness(convert(hexo-config('color_scheme.dark.brightness')))
-  .aplayer .aplayer-list ol li
-    border-top: 1px solid var(--color-card)
-  .aplayer.aplayer-withlist .aplayer-info
-    border-bottom: 1px solid var(--color-block)
-  .aplayer .aplayer-notice
-    background-color: var(--color-site-bg) !important
 
-if hexo-config('comments.service')=='twikoo'
-  .OwO
-    .OwO-body
-      color: silver !important
-      background-color: #252627 !important
-      border-color: #4a4b50 !important
-      .OwO-bar
-        border-top: 1px solid #4a4b50 !important
-        background:#4a4b50 !important
-        color: #ccc !important
-        .OwO-packages
-          li:hover
-            background-color: #252627 !important
-          .OwO-package-active
-            background-color: #252627 !important
-      .OwO-items
-        .OwO-item
-          background:#4a4b50 !important
-          color: #ccc !important
-      .OwO-items-image
-        .OwO-item:hover
-          background-color: #252627 !important
 
+/////////////////////////
 // Custom Files
 for $injects_dark in hexo-config('injects.dark')
   @import $injects_dark;

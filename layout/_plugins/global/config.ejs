@@ -1,0 +1,92 @@
+<%# GLOBAL_CONFIG _%>
+<script>
+  volantis.debug = <%- JSON.stringify(theme.debug) %>; // 调试模式
+  volantis.GLOBAL_CONFIG = {
+    root: <%- JSON.stringify(config.root || '') %>,
+    debug: <%- JSON.stringify(theme.debug) %>,
+    default: <%- JSON.stringify(theme.default) %>,
+    lastupdate: new Date(<%- theme.getStartTime || 0 %>),
+    scroll_behavior: <%- JSON.stringify(theme.scroll_smooth ? 'smooth' : 'instant') %>,
+    cdn: {
+      jquery: <%- JSON.stringify(theme.cdn.jquery || '') %>,
+      izitoast_css: <%- JSON.stringify(theme.cdn.izitoast_css || '') %>,
+      izitoast_js: <%- JSON.stringify(theme.cdn.izitoast_js || '') %>,
+      fancybox_css: <%- JSON.stringify(theme.cdn.fancybox_css || '') %>,
+      fancybox_js: <%- JSON.stringify(theme.cdn.fancybox_js || '') %>
+    },
+    sidebar: {
+      webinfo: {
+        lastupd: {
+          enable: <%- JSON.stringify(theme.sidebar.widget_library.webinfo.type.lastupd.enable) %>,
+          friendlyShow: <%- JSON.stringify(theme.sidebar.widget_library.webinfo.type.lastupd.friendlyShow) %>
+        },
+        runtime: {
+          data: <%- JSON.stringify(theme.sidebar.widget_library.webinfo.type.runtime.data || '') %>,
+          unit: <%- JSON.stringify(theme.sidebar.widget_library.webinfo.type.runtime.unit || '') %>
+        }
+      }
+    },
+    plugins: {
+      message: <%- JSON.stringify(theme.plugins.message) %>,
+      <% if(theme.plugins.aplayer.enable) { %>
+      aplayer: {
+        id: <%- JSON.stringify(theme.plugins.aplayer.id || '') %>,
+        enable: <%- JSON.stringify(theme.plugins.aplayer.enable) %>
+      },
+      <% } %>
+      <% if(theme.rightmenus.enable) { %>
+      rightmenus: <%- JSON.stringify(theme.rightmenus) %>
+      <% } %>
+    },
+    tag_plugins: {
+      chat: <%- JSON.stringify(theme.tag_plugins.chat || '') %>,
+    },
+    search: {
+      <% if(theme.search.service === 'algolia') { %>
+        appId: <%- JSON.stringify(env.ALGOLIA_APP_ID || config.algolia.appId || config.algolia.applicationID || '') %>,
+        indexName: <%- JSON.stringify(env.ALGOLIA_INDEX_NAME || config.algolia.indexName || '') %>,
+        apiKey: <%- JSON.stringify(env.ALGOLIA_API_KEY || config.algolia.apiKey || '') %>,
+        hitsPerPage: <%- JSON.stringify(theme.search.algolia.hitsPerPage || '') %>,
+        placeholder: <%- JSON.stringify(theme.search.algolia.placeholder || '') %>,
+        searchAsYouType: <%- JSON.stringify(theme.search.algolia.searchAsYouType) %>
+      <% } %>
+
+      <% if(theme.search.service === 'hexo') { %>
+        dataPath: <%- JSON.stringify((config.root || '/') + (config.root.endsWith('/') ? '' : '/') + (config?.jsonContent?.file || 'content.json')) %>,
+      <% } %>
+
+      <% if(theme.search.service === 'meilisearch') { %>
+        placeholder: <%- JSON.stringify(theme.search.meilisearch.placeholder || '') %>,
+        apiKey: <%- JSON.stringify(theme.search.meilisearch.searchKey || '') %>,
+        indexName: <%- JSON.stringify(theme.search.meilisearch.indexName || '') %>,
+        appId: <%- JSON.stringify(theme.search.meilisearch.hostUrl || '') %>
+      <% } %>
+    },
+    languages: {
+      <% if(theme.search.enable) { %>
+        search: {
+          hits_empty: <%- JSON.stringify(__('search.hits_empty') || '') %>,
+          hits_stats: <%- JSON.stringify(__('search.hits_stats') || '') %>,
+          normal: <%- JSON.stringify(__('search.normal') || '') %>,
+          hits_found: <%- JSON.stringify(__('search.hits_found') || '') %>,
+          history: <%- JSON.stringify(__('search.history') || '') %>,
+          no_history: <%- JSON.stringify(__('search.no_history') || '') %>,
+          clear_history: <%- JSON.stringify(__('search.clear_history') || '') %>,
+          filter_all: <%- JSON.stringify(__('search.filter_all') || '') %>,
+          filter_posts: <%- JSON.stringify(__('search.filter_posts') || '') %>,
+          filter_pages: <%- JSON.stringify(__('search.filter_pages') || '') %>,
+          filter_tags: <%- JSON.stringify(__('search.filter_tags') || '') %>,
+          searching: <%- JSON.stringify(__('search.searching') || '') %>,
+          placeholder: <%- JSON.stringify(__('search.placeholder_search') || '') %>,
+          label_posts: <%- JSON.stringify(__('search.label_posts') || '') %>,
+          label_pages: <%- JSON.stringify(__('search.label_pages') || '') %>,
+          label_tags: <%- JSON.stringify(__('search.label_tags') || '') %>
+        },
+      <% } %>
+      search: {
+        no_title: <%- JSON.stringify(__('search.no_title') || '') %>,
+        config_invalid: <%- JSON.stringify(__('search.config_invalid') || '') %>
+      }
+    }
+  }
+</script>

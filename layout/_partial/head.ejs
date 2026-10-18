@@ -20,7 +20,7 @@
     <meta http-equiv="Content-Security-Policy" content="<%- theme.csp.content %>">
   <%_ } _%>
   <meta name="HandheldFriendly" content="True" >
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
@@ -58,14 +58,17 @@
   <noscript><link rel="stylesheet" href="<%- theme.cdn.volantis_style %>"></noscript>
   <%_ if (theme.plugins.darkmode.enable) { _%>
     <script>
-      let userColorScheme=localStorage.getItem("color-scheme")
-      if(userColorScheme){
+      let userColorScheme=localStorage.getItem("color-scheme");
+      if (userColorScheme){
         document.documentElement.setAttribute("color-scheme", userColorScheme);
       }
     </script>
   <%_ } _%>
   <%- partial('../_plugins/end-of-support/script') %>
-  <%- partial('scripts/global') %>
+  <%- partial('../_plugins/global/script') %>
+  <%_ if (theme.structured_data && theme.structured_data.enable) { _%>
+    <%- structured_data() %>
+  <%_ } _%>
   <!-- import head_end begin -->
   <%_ if (config.import && config.import.head_end){ _%>
     <%_ getList(config.import.head_end).forEach(function(item){ _%>
