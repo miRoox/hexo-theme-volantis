@@ -1,5 +1,5 @@
 <%- partial('_pre') %>
-<section class="widget <%- item.class == 'list' ? item.class : 'list ' + item.class %> <%- page.widget_platform %>">
+<section class="widget <%- item.class != 'list' ? 'list ' : '' %> <%- page.widget_style %>">
   <%- partial('header', {item: item}) %>
   <div class='content'>
     <ul class="list entry navigation">
@@ -15,9 +15,9 @@
           >
           <div class='name'>
             <% if (row.img) { %>
-              <img src="<%- row.img %>">
+              <img alt="img" src="<%- row.img %>">
             <% } else if (row.avatar) { %>
-              <img src="<%- row.avatar %>" id="round">
+              <img alt="avatar" src="<%- row.avatar %>" id="round">
             <% } else if (row.icon) { %>
               <i class="<%= row.icon %> fa-fw" aria-hidden="true"></i>
             <% } %>

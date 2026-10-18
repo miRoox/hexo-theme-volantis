@@ -1,7 +1,6 @@
 
 # ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-# 这里是 6.0.0-alpha 分支
-# Breaking Change 会放到这个分支
+# 这里是 6.x 分支
 # ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 
 ############################### Volantis ###############################
@@ -10,40 +9,99 @@ info:
   theme_docs: https://volantis.js.org/ # This is theme's URL.
   theme_repo: https://github.com/volantis-x/hexo-theme-volantis
 # Debug 调试模式
-debug: env # false: 关闭调试模式， env：环境配置检查， rightMenus: 调试右键, cdn: 调试 CDN System
-############################### 默认占位图 ###############################
-default:
-  avatar: volantis-static/media/placeholder/avatar/round/3442075.svg # https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/avatar/round/3442075.svg
-  link: volantis-static/media/placeholder/link/8f277b4ee0ecd.svg # https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/link/8f277b4ee0ecd.svg
-  cover: volantis-static/media/placeholder/cover/76b86c0226ffd.svg # https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/cover/76b86c0226ffd.svg
-  image: volantis-static/media/placeholder/image/2659360.svg # https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg
+debug: env # false: 关闭调试模式， env：环境配置检查， pjax：调试pjax，rightMenus: 调试右键, cdn: 调试 CDN System
+############################### Volantis ###############################
+
+
+############################### Main ###############################
+# 站点主结构树
+site_tree:
+  # 404 错误页配置
+  404:
+    enable: true # 或者设为false，自己创建页面
+    path: '/404.html'
+    # 以下遵守页面 Front-matter 写法
+    data:
+      sidebar: []
+      robots: "noindex,nofollow"
+      #content: "404HTML"
+  # 标签页配置
+  tag:
+    enable: true # 或者设为false，自己创建页面
+    # 以下遵守页面 Front-matter 写法
+    data:
+      title: "所有标签"
+      #sidebar: []
+      robots: "noindex,follow"
+  # 分类页配置
+  category:
+    enable: true # 或者设为false，自己创建页面
+    # 以下遵守页面 Front-matter 写法
+    data:
+      title: "所有分类"
+      #sidebar: []
+      robots: "noindex,follow"
+  # 博客专栏列表页配置
+  index_topic:
+    base_dir: topic # 只影响自动生成的页面路径
+    # 以下遵守页面 Front-matter 写法
+    data:
+      title: "专栏"
+      #sidebar: []
+      robots: "noindex,follow"
+  # 文档列表页配置
+  index_wiki:
+    base_dir: wiki # 只影响自动生成的页面路径
+    # 以下遵守页面 Front-matter 写法
+    data:
+      title: "项目"
+      #sidebar: []
+      robots: "noindex,follow"
+  # 笔记本列表页配置
+  notebooks:
+    base_dir: notebooks # 笔记本列表页的路径。以及未指定 base_dir 的笔记本的路径前缀。
+    # 以下遵守页面 Front-matter 写法
+    data:
+      title: "笔记本"
+      #sidebar: []
+      robots: "noindex,follow"
+  # 笔记列表页配置
+  notes:
+    # 以下遵守页面 Front-matter 写法
+    data:
+      title: "笔记"
+      #sidebar: []
+      robots: "noindex,follow"
+
+
+
 
 
 ############################### CDN System ###############################
 
 cdn_system:
   # CDN 优先级 从高到低排序 写入 priority 列表即表示启用(enable)
-  priority: [custom, local, cdnjs, npm, static]
+  priority: [custom, local, npm, static, cdnjs]
   # ========================================================================
-  # cdn数据配置文件见 "theme/_cdn.yml", 可以在 source/_data/cdn.yml 覆盖 theme/_cdn.yml
+  # cdn数据配置文件见 "theme/_data/cdn.yml", 可以在 source/_data/cdn.yml 覆盖 theme/_data/cdn.yml
   # 变量说明：
   # 以下变量只能在 `prefix` 中使用。
   # ${site_root}                站点根目录 一般是 "/"
   # 以下变量只能在 `format` 中使用。
   # ${prefix}                   CDN 链接前缀
-  # ${name}                     package 名称 见 "theme/_cdn.yml"
-  # ${version}                  package 版本 见 "theme/_cdn.yml"
-  # ${file}                     文件路径 见 "theme/_cdn.yml"
-  # ${min_file}                 文件路径 ${file} 后添加 .min. (jsdelivr、cdnjs 官方自带压缩)
+  # ${name}                     package 名称 见 "theme/_data/cdn.yml"
+  # ${version}                  package 版本 见 "theme/_data/cdn.yml"
+  # ${file}                     文件路径 见 "theme/_data/cdn.yml"
+  # ${min_file}                 文件路径 ${file} 后添加 .min. (jsdelivrcdnjs 官方自带压缩)
   # ${timestamp}                Hexo运行时的时间戳(eg：1661246702300), 可用于静态资源版本控制 format: ${prefix}${file}?v=${timestamp}
   system_config:
-    # 自定义配置 使用 "theme/_cdn.yml" 中的名称作为配置项的键
+    # 自定义配置 使用 "theme/_data/cdn.yml" 中的名称作为配置项的键
     custom:
-      busuanzi: https://npm.elemecdn.com/penndu@1.0.0/bsz.js  # 杜老师友情赞助
+      busuanzi: https://jsd.onmicrosoft.cn/npm/penndu@17.0.0/bsz.js  # 杜老师友情赞助
       #volantis_style: /css/style.css
       #volantis_app: /js/app.js
 
-    # 主题 /js与/css目录 （一般放在本地，可以在此处配置站点CDN）,"theme/_cdn.yml" 中以 "volantis_" 开头的名称
+    # 主题 /js与/css目录 （一般放在本地，可以在此处配置站点CDN）,"theme/_data/cdn.yml" 中以 "volantis_" 开头的名称
     # Tip: 在本配置文件中 匹配以 "volantis-local" 开头的链接路径替换为该格式的前缀开头 prefix
     local:
       # CDN 链接前缀
@@ -63,7 +121,7 @@ cdn_system:
     # Tip: 在本配置文件中 匹配以 "volantis-static" 开头的链接路径替换为该格式的前缀开头 prefix
     static:
       # CDN 链接前缀
-      prefix: https://unpkg.com/volantis-static@0.0.1660614606622
+      prefix: https://unpkg.com/volantis-static@0.0.1761982841160
       # volantis-static CDN 格式
       format: ${prefix}/libs/${name}/${file}
     # cdnjs
@@ -71,7 +129,7 @@ cdn_system:
     # Tip: 在本配置文件中 匹配以 "volantis-cdnjs" 开头的链接路径替换为该格式的前缀开头 prefix
     cdnjs:
       # CDN 链接前缀
-      prefix: https://cdn.bootcdn.net/ajax/libs
+      prefix: https://cdnjs.cloudflare.com/ajax/libs
       # cdnjs CDN 格式
       format: ${prefix}/${name}/${version}/${min_file}
   # ========================================================================
@@ -86,6 +144,7 @@ cdn_system:
 # https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP
 # https://content-security-policy.com/
 # 也可以设为 false 在 HTTP 标头中设置 https://volantis.js.org/v5/advanced-settings/#设置-HTTP-响应标头
+# 网站如果被注入恶意脚本，通常会在iframe和worker处下手，这里在frame处配置域名白名单(含标签插件)，worker仅允许本站域名self
 csp:
   enable: true
   content: "
@@ -98,7 +157,7 @@ csp:
     img-src 'self' data: https: *;
     media-src 'self' https: *;
     font-src 'self' data: https: *;
-    frame-src 'self' https: *;
+    frame-src 'self' https://giscus.app https://*.bilibili.com https://*.youtube.com https://*.163.com;
     manifest-src 'self' https: *;
     child-src https:;
     script-src 'self' https: 'unsafe-inline' *;
@@ -122,7 +181,6 @@ replace:
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
   - https://unpkg.com
-  - https://cdn.bootcdn.net
 
 
 # 平滑滚动效果
@@ -173,26 +231,26 @@ cover:
   subtitle: ''
   search: A Wonderful Theme for Hexo # search bar placeholder
   features:
-    - name: 文档
+    - name: 项目
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
-      url: /v4/getting-started/
-    - name: 帮助
+      url: /wiki/
+    - name: 笔记
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f516.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
-      url: faqs/
-    - name: 示例
+      url: /notebooks/
+    - name: 专栏
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f396.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
-      url: /examples/
-    - name: 社区
-      icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f389.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
-      url: /contributors/
+      url: /topic/
     - name: 博客
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f4f0.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
       url: /archives/
+    - name: 社区
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f389.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
+      url: https://volantis.js.org/
     - name: 源码
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f9ec.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
@@ -203,6 +261,9 @@ pages:
   # 友链页面配置
   friends:
     layout_scheme: traditional # simple: 简单布局, traditional: 传统布局
+    link_block_color:
+      enable: false #友链块颜色开关，用 color: '颜色' 字段
+      unified_font: false # 是否统一友链块文字，true则所有文字都会成黑，false只有
 
 ############################### Article Layout ############################### > start
 # 文章布局
@@ -223,7 +284,7 @@ article:
     # show author
     author: false # true, false
     # show readmore button
-    readmore: auto # auto, always
+    readmore: auto # auto, always, false
   # 文章详情页面的文章卡片本体布局方案
   body:
     # 文章顶部信息
@@ -294,7 +355,7 @@ article:
           #############################
           rules:
             type1: 
-              text: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh#" target="_blank">CC BY-NC-SA 4.0</a>
+              text: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans#" target="_blank">CC BY-NC-SA 4.0</a>
               desc: 署名-非商业性使用-相同方式共享 4.0 国际。
             type2: 
               text: 禁止转载引用
@@ -477,6 +538,7 @@ comments:
     admin: # []
     path: # 全局评论地址
 
+  # Vssue 暂不支持Pjax
   # https://vssue.js.org/zh/
   vssue:
     owner:
@@ -484,6 +546,7 @@ comments:
     clientId:
     clientSecret:
 
+  # LiveRe 暂不支持Pjax
   # https://www.livere.com
   livere:
     uid:
@@ -496,6 +559,7 @@ comments:
     css:
     gravatar:
 
+  # HashOver 暂不支持Pjax
   # https://www.barkdull.org/software/hashover
   hashover:
     src: https://example.com/(path/)comments.php
@@ -553,147 +617,44 @@ comments:
 ############################### Sidebar ############################### > start
 sidebar:
   position: right # left right
-  # 主页、分类、归档等独立页面
-  for_page: [blogger, category, tagcloud, donate]
-  # layout: docs/post 这类文章页面
-  for_post: [toc]
+  ##########################
+  # 站点主结构 Sidebar 配置
+  for:
+    # -- 列表类页面 -- #
+    # 主页配置
+    home: [blogger, category, tagcloud, recent]
+    # 博客列表页配置 （归档、标签、分类、专栏）
+    index_blog: [blogger,recent]
+    # 文档列表页配置
+    index_wiki: [related, recent]
+    # 笔记本列表页配置
+    notebooks: [recent]
+    # 笔记列表页配置
+    notes: [tagtree, recent]
+    # -- 内容类页面 -- #
+    # 博客文章内页配置 (同博客专栏文章内页)
+    post: [toc, related, recent]
+    # 文档内页配置
+    wiki: [toc, tree, related, recent]
+    # 笔记内页配置
+    note: [toc, tagtree, recent]
+    # 其它自定义页面配置 layout: page
+    page: [toc, recent]
+
+  ##########################
   # 侧边栏组件库
-  widget_library:
-    # ---------------------------------------
+  widget_library: # 此处配置可被 _data/widgets.yml 覆盖
     # blogger info widget
     blogger:
       class: blogger
-      display: [desktop, mobile] # [desktop, mobile]
-      avatar: volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
-      shape: rectangle # circle, rectangle
-      url: /about/
-      title:
-      subtitle:
-      jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
-      social:
-        - icon: fa-solid fa-rss
-          url: /atom.xml
-        - icon: fa-solid fa-envelope
-          url: mailto:me@xxx.com
-        - icon: fab fa-github
-          url: https://github.com/volantis-x/
-        - icon: fa-solid fa-headphones-alt
-          url: /
     # ---------------------------------------
     # toc widget (valid only in articles)
     toc:
       class: toc
-      display: [desktop, mobile] # [desktop, mobile]
-      sticky: true
-      header:
-        icon: fa-solid fa-list
-        title: 本文目录
-      list_number: false
-      min_depth: 2
-      max_depth: 5
     # ---------------------------------------
-    # music
-    music:
-      class: music
-      display: [desktop, mobile] # [desktop, mobile]
+    # 所有 widgets 见 _data/widgets.yml 写在这里配置文件太长了
     # ---------------------------------------
-    # category widget
-    category:
-      class: category
-      display: [desktop] # [desktop, mobile]
-      header:
-        icon: fa-solid fa-folder-open
-        title: 文章分类
-        url: /blog/categories/
-    # ---------------------------------------
-    # tagcloud widget
-    tagcloud:
-      class: tagcloud
-      display: [desktop, mobile] # [desktop, mobile]
-      header:
-        icon: fa-solid fa-tags
-        title: 热门标签
-        url: /blog/tags/
-      min_font: 14
-      max_font: 24
-      color: true
-      start_color: '#999'
-      end_color: '#555'
-    # ---------------------------------------
-    # qrcode widget
-    qrcode:
-      class: qrcode
-      display: [desktop, mobile] # [desktop, mobile]
-      height: 64px  # Automatic height if not set
-      images:
-        - volantis-static/media/org.volantis/blog/qrcode/github@volantis.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
-        - volantis-static/media/org.volantis/blog/qrcode/github@volantis.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
-    # ---------------------------------------
-    # webinfo widget
-    webinfo:
-      class: webinfo
-      display: [desktop]
-      header:
-        icon: fa-solid fa-award
-        title: 站点信息
-      type:
-        article:
-          enable: true
-          text: '文章数目：'
-          unit: '篇'
-        runtime:
-          enable: false
-          data: '2020/01/01'    # 填写建站日期
-          text: '已运行时间：'
-          unit: '天'
-        wordcount:
-          enable: false
-          text: '本站总字数：'   # 需要启用 wordcount
-          unit: '字'
-        visitcounter:
-          enable: true
-          siteuv:
-            text: '本站访客数：'
-            unit: '人'
-          sitepv:
-            text: '本站总访问量：'
-            unit: '次'
-        lastupd:
-          enable: true
-          friendlyShow: true    # 更友好的时间显示
-          text: '最后活动时间：'
-          unit: '日'
-    # ---------------------------------------
-    # lastupdate widget
-    lastupdate:
-      class: lastupdate
-      display: [desktop, mobile]
-      header:
-        icon: fa-solid fa-clock WISTERIA
-        title: 最近更新
-    # ---------------------------------------
-    # Artalk widget
-    artalk:
-      class: artalk
-      stickys: true
-      display: [desktop, mobile]
-    # ---------------------------------------
-    # Memos widget
-    memos_carousel:
-      class: memos_carousel
-      display: [desktop, mobile]
-      header:
-        icon: fa-solid fa-volume-high
-        title: 说说
-        url: /blog/memos/ # 说说页面的地址
-      url: 'https://s.dusays.com/' # 替换城自己的域名，也可以用杜老师的平台托管
-      limit: '10' # 展示数量限制
-      creatorId: '1' # 替换成自己的用户的ID
-      tag: '' # 要展示的内容的标签
-      image: 'fa-solid fa-image' # 图片替换成图标
-      link: 'fa-solid fa-link' # 链接替换成图标
-      placeholder: '说说加载中...' # 占位符
-
+    
 ############################### Sidebar ############################### > end
 
 
@@ -709,9 +670,79 @@ tag_plugins:
   checkbox:
     interactive: false # enable interactive for user
     color: '' # color for default checkbox
-  # {% link title, url, img %}
+  # {% link title, url, img %} {% Link url title [icon:src] %}
   link:
     placeholder:  volantis-static/media/org.volantis/logo/256/safari.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/256/safari.png
+  # {% emoji %}
+  emoji:
+    default: https://gcore.jsdelivr.net/gh/cdn-x/emoticons@3.1/qq/{name}.gif
+    twemoji: https://gcore.jsdelivr.net/gh/twitter/twemoji/assets/svg/{name}.svg
+    qq: https://gcore.jsdelivr.net/gh/cdn-x/emoticons@3.1/qq/{name}.gif
+    aru: https://gcore.jsdelivr.net/gh/cdn-x/emoticons@3.1/aru/{name}.gif
+    tieba: https://gcore.jsdelivr.net/gh/cdn-x/emoticons@3.1/tieba/{name}.png
+    blobcat: https://gcore.jsdelivr.net/gh/cdn-x/emoticons@3.1/blobcat/{name}.gif
+  icon:
+    # 留空时，图标和文字颜色相同
+    default_color: accent # theme, accent, red, orange, yellow, green, cyan, blue, purple
+  # {% mark %}
+  mark:
+    default_color: yellow # light, dark, red, orange, yellow, green, cyan, blue, purple, warning, error
+  # {% hashtag %}
+  hashtag:
+    default_color: # red, orange, yellow, green, cyan, blue, purple
+  # {% Image %}
+  Image:
+    fancybox: false # true, false
+  # {% Gallery %}
+  Gallery:
+    layout: grid # grid / flow
+    size: mix # s / m / l / xl / mix
+    ratio: square # origin / square
+  # {% box %} / {% Note %}
+  Note:
+    default_color: '' # light, dark, red, orange, yellow, green, cyan, blue, purple, warning, error
+    border: true # true / false
+  # {% quot %}
+  quot:
+    default: # 可以自行配置多种图标方案，支持icons.yml中配置的图片key，也支持直接设置svg/png等文件链接
+      prefix: bxs:quote-left
+      suffix: bxs:quote-right
+    hashtag:
+      prefix: solar:hashtag-square-bold
+    question:
+      prefix: ph:seal-question-fill
+  # {% button 标题 链接 %}
+  button:
+    default_color: theme # theme, accent, red, orange, yellow, green, cyan, blue, purple
+  # {% okr o1 percent:50 status:in_track/at_risk/off_track/finished/unfinished %}
+  okr:
+    border: true # 是否显示边框
+    status: # 可以自行增加
+      # 进行中状态
+      in_track:
+        color: blue # red, orange, yellow, green, cyan, blue, purple
+        label: 正常
+      at_risk: 
+        color: yellow
+        label: 风险
+      off_track:
+        color: orange
+        label: 延期
+      # 结果状态
+      finished:
+        color: green
+        label: 已完成
+      unfinished:
+        color: red
+        label: 未完成
+  # {% copy xxx %}
+  copy:
+    toast: 复制成功
+  # {% Checkbox %}
+  Checkbox:
+    interactive: false # enable interactive for user
+  chat:
+    api: https://siteinfo.listentothewind.cn/api/v1
 ############################### Tag Plugins ############################### > end
 
 
@@ -732,8 +763,8 @@ site_footer:
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using busuanzi
   analytics: >
-    <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
-    <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
+    <span>本站总访问量为 <span id='busuanzi_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
+    <span>访客数为 <span id='busuanzi_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
   copyright: '[Copyright © since 2017 XXX](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
@@ -752,6 +783,8 @@ plugins:
   sitesjs:
     enable: true
   friendsjs:
+    enable: true
+  fpostsjs:
     enable: true
   contributorsjs:
     enable: true
@@ -872,7 +905,7 @@ plugins:
     id: 3175833810    # song id / playlist id / album id / search keyword
     # ============= meting end =============
     # ============= local begin ==============
-    # local 暂时没有适配右键 和 post.music 迷你模式
+    # local 暂时没有适配右键
     audio:
       - name: 'Fly'
         artist: 'Marshmello'
@@ -886,7 +919,7 @@ plugins:
         cover: '/music/Avem.jpg'
     # ============= local end ================
     # Optional
-    fixed: false      # enable fixed mode
+    fixed: false      # enable fixed mode 此处true会对footer与sidebar开启的aplayer造成影响
     theme: '#1BCDFC'  # main color
     autoplay: false   # audio autoplay
     order: list       # player play order, values: 'list', 'random'
@@ -896,13 +929,32 @@ plugins:
     list_folded: true
     autoHide: true    # hide automaticaly
 
+  # Pjax
+  pjax:
+    enable: true
+    cover: true          # 封面是否pjax处理 false：每次切换页面封面都重载，适合封面较少的情况 true：封面经过Pjax处理，适合封面较多的情况
+    timeout: 900         # The timeout in milliseconds for the XHR requests. Set to 0 to disable the timeout.
+    cacheBust: false     # When set to true, Pjax appends a timestamp  to skip the browser cache.
+    exclude:             # 被屏蔽的 url 地址将不启用 pjax 跳转，可以在控制台下使用 window.location.pathname 获取
+      # - '/artitalk/'   # artitalk 不支持 pjax
+      # - '/bbtalk/'     # bbtalk 不支持 pjax
+
   # pace
   # An automatic web page progress bar.
   # https://github.com/CodeByZach/pace
   pace:
-    enable: true
+    enable: #true
+    read_progress: true # 页面阅读进度
     color: blue # black, blue, green, orange, pink, purple, red, silver, white, yellow
     theme: minimal # big-counter, bounce, barber-shop, center-atom, center-circle, center-radar, center-simple, corner-indicator, fill-left, flat-top, flash, loading-bar, mac-osx, material, minimal
+
+
+  # nprogress
+  # For slim progress bars like on YouTube, Medium, etc
+  # https://github.com/rstacruz/nprogress
+  nprogress:
+    enable: #true
+
 
   # 暗黑模式 darkmode
   # 开关按钮：在 navbar.menu 中添加：
@@ -930,6 +982,7 @@ plugins:
   # 除appID和appKEY外均为选填项
   artitalk:
     # Set `plugins: ["artitalk"]` to enable in front-matter
+    # 不支持 Pjax
     # 配置项按照yml格式继续填写即可
     appId: ogP8qj3veMh0LFpFWMPOyF0X-MdYXbMMI # your appID
     appKey: nHXLd3N3Jgh460t2iRQKWAtr # your appKEY
@@ -955,6 +1008,7 @@ plugins:
   # BBtalk https://bb.js.org
   bbtalk:
     # Set `plugins: ["bbtalk"]` to enable in front-matter
+    # 不支持 Pjax
     appId: 0KzOX4vC7Jsk6vzUGNeEiUaI-gzGzoHsz # your appID
     appKey: HwCiWuxfpvKiLm4teCUgTIba # your appKEY
     serverURLs: https://bbapi.heson10.com # Request Api 域名
@@ -964,6 +1018,7 @@ plugins:
   # https://fcircle-doc.js.cool/
   fcircle:
     # Set `plugins: ["fcircle"]` to enable in front-matter
+    # 支持 Pjax
     private_api_url: https://fcircle-api.example.com/ # api 地址
     page_init_number: 20 # 初始加载几篇文章
     page_turning_number: 10  # 点击加载更多时，一次最多加载几篇文章，默认10
@@ -972,10 +1027,21 @@ plugins:
     expire_days: 1 # 本地文章缓存数据过期时间（天）
     js: https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.13/dist/fcircle.min.js # fcircle.min.js的url
 
+  # 轻量友链朋友圈
+  # https://github.com/willow-god/Friend-Circle-Lite
+  # https://blog.liushen.fun/posts/4dc716ec/
+  fcircle_lite:
+    # Set `plugins: ["fcircle_lite"]` to enable in front-matter
+    private_api_url:              # 填写你的fc_Lite地址
+    page_turning_number: 20 # 点击加载更多时，一次最多加载几篇文章，默认20
+    error_img: https://i.p-i.vip/30/20240815-66bced9226a36.webp # 头像加载失败时，默认头像地址
+    css: https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite/main/fclite.min.css # CSS文件地址
+    js: https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite/main/fclite.min.js # JS文件地址
+
   # 消息提示 
   # izitoast
   message:
-    enable: true
+    enable: #true
     icon:     # 默认图标，支持对图标添加颜色，可选值：see：/source/css/_style/_plugins/fontcolor.styl
       default: fa-solid fa-info-circle light-blue
       quection: fa-solid fa-question-circle light-blue
@@ -990,12 +1056,12 @@ plugins:
     backgroundColor: 'var(--color-card)' # 默认背景色
     zindex: 2147483647                   # 层级
     copyright:                           # 是否在复制时弹出版权提示，影响范围：ctrl+c、代码块复制按钮、右键复制选项
-      enable: true
+      enable: #true
       title: '知识共享许可协议'
       message: '请遵守 CC BY-NC-SA 4.0 协议。'
       icon: 'far fa-copyright light-blue'
     aplayer:                              # 是否开启音乐通知；播放、暂停、失败 时的图标
-      enable: true
+      enable: #true
       play: fa-solid fa-play
       pause: fa-solid fa-pause
     rightmenu:
@@ -1003,23 +1069,39 @@ plugins:
       notice: true                        # 唤醒原右键菜单的通知
 
   # 聊天功能
-  chat_service: # tidio or gitter
+  chat_service: # tidio 
 
   # Tidio
   # https://www.tidio.com/
   tidio:
     id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-  # Gitter
-  # https://gitter.im
-  gitter:
-    room: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
   # swiper
   # https://www.swiper.com.cn/
   swiper:
     enable: true
 
+  # AI摘要
+  # https://github.com/zhheo/Post-Abstract-AI
+  tianliGPT:
+    enable: false
+    key: 5Q5mpqRK5DkwT1X9Gi5e
+    wordLimit: 1000 # 摘要字数限制 (⚠️危险：更改此变量损失已消耗过的key，因为你提交的内容发生了变化。)
+    typewriter: true # 打字机效果
+
+  # Mermaid - markdwon to flow chart, seq chart, class chart ...
+  # https://mermaid.js.org/intro/
+  # 需要安装 npm install --save hexo-filter-mermaid-diagrams
+  # Set `plugins: ["mermaid"]` to enable in front-matter
+  # 使用示例：
+  # ```mermaid
+  # graph LR
+  #   A(Section A) -->|option 1| B(Section A)
+  #   B -->|option 2| C(Section C)
+  # ```
+  mermaid:
+    # Available themes: default | dark | forest | neutral
+    theme: neutral
 ############################### Plugins ############################### > end
 
 ############################### Rightmenu ############################### > start
@@ -1361,3 +1443,30 @@ structured_data:
       width: 192
       height: 192
 ############################### Structured Data ############################### > end
+
+
+############################### 默认占位图 ###############################
+default:
+  avatar: volantis-static/media/placeholder/avatar/round/3442075.svg # https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/avatar/round/3442075.svg
+  link: volantis-static/media/placeholder/link/8f277b4ee0ecd.svg # https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/link/8f277b4ee0ecd.svg
+  cover: volantis-static/media/placeholder/cover/76b86c0226ffd.svg # https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/cover/76b86c0226ffd.svg
+  image: volantis-static/media/placeholder/image/2659360.svg # https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg
+  topic: https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/10433048.png
+  project: https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2779789.png
+  banner: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/banner/books.jpg
+  loading: https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd
+  image_onerror: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2rem' height='2rem' viewBox='0 0 24 24'%3E%3C!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23F44336' d='M22 12.698c-.002 1.47-.013 2.718-.096 3.743c-.097 1.19-.296 2.184-.74 3.009a4.2 4.2 0 0 1-.73.983c-.833.833-1.893 1.21-3.237 1.39C15.884 22 14.2 22 12.053 22h-.106c-2.148 0-3.83 0-5.144-.177c-1.343-.18-2.404-.557-3.236-1.39c-.738-.738-1.12-1.656-1.322-2.795c-.2-1.12-.236-2.512-.243-4.241Q1.999 12.737 2 12v-.054c0-2.148 0-3.83.177-5.144c.18-1.343.557-2.404 1.39-3.236s1.893-1.21 3.236-1.39c1.168-.157 2.67-.175 4.499-.177a.697.697 0 1 1 0 1.396c-1.855.002-3.234.018-4.313.163c-1.189.16-1.906.464-2.436.994S3.72 5.8 3.56 6.99C3.397 8.2 3.395 9.788 3.395 12v.784l.932-.814a2.14 2.14 0 0 1 2.922.097l3.99 3.99a1.86 1.86 0 0 0 2.385.207l.278-.195a2.79 2.79 0 0 1 3.471.209l2.633 2.37c.265-.557.423-1.288.507-2.32c.079-.972.09-2.152.091-3.63a.698.698 0 0 1 1.396 0' opacity='.5'/%3E%3Cpath fill='%23F44336' fill-rule='evenodd' d='M17.5 11c-2.121 0-3.182 0-3.841-.659S13 8.621 13 6.5s0-3.182.659-3.841S15.379 2 17.5 2s3.182 0 3.841.659S22 4.379 22 6.5s0 3.182-.659 3.841S19.621 11 17.5 11m-1.47-7.03a.75.75 0 1 0-1.06 1.06l1.47 1.47l-1.47 1.47a.75.75 0 0 0 1.06 1.06l1.47-1.47l1.47 1.47a.75.75 0 1 0 1.06-1.06L18.56 6.5l1.47-1.47a.75.75 0 0 0-1.06-1.06L17.5 5.44z' clip-rule='evenodd'/%3E%3C/svg%3E"
+
+data_services:
+  # 数据填充类
+  siteinfo:
+    # 设置 api 可以自动提取网页标题、图标，服务部署方法：https://github.com/xaoxuu/site-info-api/
+    # 接口测试通过后，把按钮的 href 部分替换成 {href} 之后填写到下方，例如：https://api.xaox.cc/site_info/v1?url={href}
+    api: #https://site-info-api-xxxxxxxx.vercel.app/api/v1?url={href}
+
+api_host:
+  ghapi: https://api.github.com
+  ghraw: https://raw.githubusercontent.com
+  gist: https://gist.github.com
+  # https://github.com/stats-organization/github-stats-extended ## eol: https://github.com/anuraghazra/github-readme-stats
+  ghcard: https://github-stats-extended.vercel.app

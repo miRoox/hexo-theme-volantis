@@ -1,6 +1,9 @@
-
-hexo.extend.tag.register('md', function(args) {
-  const {config} = hexo;
+/**
+ * 上次修改更新：5.0 | https://github.com/volantis-x/hexo-theme-volantis
+ *
+ */
+hexo.extend.tag.register('md', function (args) {
+  const { config } = hexo;
   const md_path = args[0].trim();
   let md_id = "md-" + hexo.createUuid()
   let mat = `
@@ -12,7 +15,7 @@ hexo.extend.tag.register('md', function(args) {
     const loadMarkdown = (url) => {
       if (!window.fetch) {
         contentEl.innerHTML =
-          '<div style="font-size: 24px"><p>Your browser outdated. Please use the latest version of Chrome or Firefox!</p><p>您的浏览器版本过低，请使用最新版的 Chrome 或 Firefox 浏览器！</p></div>';
+          '<div style="font-size: 24px"><p>Your browser is outdated. Please use the latest version of Chrome or Firefox!</p><p>您的浏览器版本过低，请使用最新版的 Chrome 或 Firefox 浏览器！</p></div>';
       } else {
         contentEl.innerHTML =
           '<div style="font-size: 24px">Loading ... | 加载中。。。</div>';
@@ -34,7 +37,7 @@ hexo.extend.tag.register('md', function(args) {
                 headers,
               };
             } else {
-              throw new Error(JSON.stringify(json.error));
+              throw new Error("Request failed with status " + status + ": " + data);
             }
           })
           .then((resp) => {

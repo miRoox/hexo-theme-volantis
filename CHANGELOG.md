@@ -1,5 +1,211 @@
 # Changelog
 
+## [6.8.3](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.8.2...v6.8.3) (2026-08-24)
+
+
+### Bug Fixes
+
+* 安全加固csp的frame设置白名单。pace默认关闭。 ([e4c77c7](https://github.com/volantis-x/hexo-theme-volantis/commit/e4c77c7d3e65d9d66eb0d039f72ca880af66056e))
+
+## [6.8.2](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.8.1...v6.8.2) (2026-08-08)
+
+
+### Bug Fixes
+
+* text autospace ([#1036](https://github.com/volantis-x/hexo-theme-volantis/issues/1036)) ([641cac4](https://github.com/volantis-x/hexo-theme-volantis/commit/641cac451b27bad6aeaa88f09711f5fca9dfeb23))
+* 修复标题显示逻辑，回滚移除重复description标签 ([#1038](https://github.com/volantis-x/hexo-theme-volantis/issues/1038)) ([1b5eeb8](https://github.com/volantis-x/hexo-theme-volantis/commit/1b5eeb8f7f87ce49f3cf9f9b44d1c45978bb405a))
+
+## [6.8.1](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.8.0...v6.8.1) (2026-08-05)
+
+
+### Bug Fixes
+
+* dark color for details note ([#1033](https://github.com/volantis-x/hexo-theme-volantis/issues/1033)) ([8d7185d](https://github.com/volantis-x/hexo-theme-volantis/commit/8d7185d6032ea4c90aa7a15c886bd7582289c820))
+
+## [6.8.0](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.7.0...v6.8.0) (2026-08-04)
+
+
+### Features
+
+* banner navbar ([#1030](https://github.com/volantis-x/hexo-theme-volantis/issues/1030)) ([991492b](https://github.com/volantis-x/hexo-theme-volantis/commit/991492b6366054f441ec327199f852906d3aed0f))
+* copy tag ([#1026](https://github.com/volantis-x/hexo-theme-volantis/issues/1026)) ([8a8e21e](https://github.com/volantis-x/hexo-theme-volantis/commit/8a8e21ecb5551f8582bb2096bcec2a561a225776))
+* Link xlink ([#1027](https://github.com/volantis-x/hexo-theme-volantis/issues/1027)) ([caaf1bb](https://github.com/volantis-x/hexo-theme-volantis/commit/caaf1bb5e882f59977065bdc222988a5a20cf47c))
+* posters albums ([#1028](https://github.com/volantis-x/hexo-theme-volantis/issues/1028)) ([54d3689](https://github.com/volantis-x/hexo-theme-volantis/commit/54d368921ccaef123482f1a5609553ff77c04b04))
+* search from inkss ([#1025](https://github.com/volantis-x/hexo-theme-volantis/issues/1025)) ([a97c11c](https://github.com/volantis-x/hexo-theme-volantis/commit/a97c11c422ef5ba55a50a2f83d96daacdad282b5))
+* Timeline ([#1029](https://github.com/volantis-x/hexo-theme-volantis/issues/1029)) ([e0c9ccb](https://github.com/volantis-x/hexo-theme-volantis/commit/e0c9ccb4451ec0f8e4394b2ee5b43304c2037c28))
+* 代码翻新和注释 from inkss ([#994](https://github.com/volantis-x/hexo-theme-volantis/issues/994)) 导致 fix: 修复waline v3的引入问题- [#926](https://github.com/volantis-x/hexo-theme-volantis/issues/926) 丢失 ([c9ac6f2](https://github.com/volantis-x/hexo-theme-volantis/commit/c9ac6f2ed007b0078ccb949fc2efa8340312ce12))
+
+
+### Bug Fixes
+
+* harden config.ejs against unsafe string interpolation ([#1023](https://github.com/volantis-x/hexo-theme-volantis/issues/1023)) ([4cb365f](https://github.com/volantis-x/hexo-theme-volantis/commit/4cb365f448f7eb0ec4990b99e0092d22c9157571))
+* 一些颜色变量 ([#1032](https://github.com/volantis-x/hexo-theme-volantis/issues/1032)) ([20ad265](https://github.com/volantis-x/hexo-theme-volantis/commit/20ad265ed4153a63ba7980ace01c5f445bd454ee))
+* 修复waline v3的引入问题 ([#1031](https://github.com/volantis-x/hexo-theme-volantis/issues/1031)) ([c9ac6f2](https://github.com/volantis-x/hexo-theme-volantis/commit/c9ac6f2ed007b0078ccb949fc2efa8340312ce12))
+
+## [6.7.0](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.6.1...v6.7.0) (2026-07-30)
+
+
+### Features
+
+* Checkbox Radio button Audio chat Frame Link okr Video ([#1022](https://github.com/volantis-x/hexo-theme-volantis/issues/1022)) ([6435a00](https://github.com/volantis-x/hexo-theme-volantis/commit/6435a001462aeec6a45e125a8672b62e1bb54b29))
+* folders 标签 ([#1014](https://github.com/volantis-x/hexo-theme-volantis/issues/1014)) ([69b1252](https://github.com/volantis-x/hexo-theme-volantis/commit/69b1252b0fddb5fbe780989972cb5051820736fa))
+* Folding 标签 ([#1012](https://github.com/volantis-x/hexo-theme-volantis/issues/1012)) ([cb53d53](https://github.com/volantis-x/hexo-theme-volantis/commit/cb53d53f9878b9e096a8c27742e26d9d16538934))
+* Gallery 标签 ([#1017](https://github.com/volantis-x/hexo-theme-volantis/issues/1017)) ([c161f50](https://github.com/volantis-x/hexo-theme-volantis/commit/c161f50307323714441931338e8d52d83ccbc56d))
+* grid 标签 ([#1019](https://github.com/volantis-x/hexo-theme-volantis/issues/1019)) ([00236e9](https://github.com/volantis-x/hexo-theme-volantis/commit/00236e9c41c0ac38badbe2e5a54a8416bf436987))
+* Image 标签 ([#1016](https://github.com/volantis-x/hexo-theme-volantis/issues/1016)) ([08453b6](https://github.com/volantis-x/hexo-theme-volantis/commit/08453b6b8d5454c4abbc34d94d27517212920431))
+* mark hashtag 标签 ([#1015](https://github.com/volantis-x/hexo-theme-volantis/issues/1015)) ([25745df](https://github.com/volantis-x/hexo-theme-volantis/commit/25745dff0707c970ebddd2be81d55ddec4796b5e))
+* Note box ([#1018](https://github.com/volantis-x/hexo-theme-volantis/issues/1018)) ([bab871f](https://github.com/volantis-x/hexo-theme-volantis/commit/bab871f0a5fd1152a08fc6eef959a52e8e92efc7))
+* poetry reel paper ([#1021](https://github.com/volantis-x/hexo-theme-volantis/issues/1021)) ([170216a](https://github.com/volantis-x/hexo-theme-volantis/commit/170216a9d4557e0e300c2ef112b79ca6082dfff2))
+* quot blockquote ([#1020](https://github.com/volantis-x/hexo-theme-volantis/issues/1020)) ([00b0617](https://github.com/volantis-x/hexo-theme-volantis/commit/00b061709a473982dbd273336f8366513275750a))
+
+## [6.6.1](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.6.0...v6.6.1) (2026-07-26)
+
+
+### Bug Fixes
+
+* merge widgets ([#1010](https://github.com/volantis-x/hexo-theme-volantis/issues/1010)) ([d713c74](https://github.com/volantis-x/hexo-theme-volantis/commit/d713c74dd1f220c4f55ea9b799d111ad4047a3a0))
+
+## [6.6.0](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.5.0...v6.6.0) (2026-07-26)
+
+
+### Features
+
+* emoji icon 标签 ([#1009](https://github.com/volantis-x/hexo-theme-volantis/issues/1009)) ([4cb4696](https://github.com/volantis-x/hexo-theme-volantis/commit/4cb4696a59fed08e15dbab994da50d5180fd71a2))
+* styl 工具函数 volantis-dark(ondark) ([#1006](https://github.com/volantis-x/hexo-theme-volantis/issues/1006)) ([8d22f3a](https://github.com/volantis-x/hexo-theme-volantis/commit/8d22f3a4f41c62de153a912ae70ce0b8b0635ef8))
+* sub sup blur 标签 ([#1004](https://github.com/volantis-x/hexo-theme-volantis/issues/1004)) ([18a419b](https://github.com/volantis-x/hexo-theme-volantis/commit/18a419be52a8245c1134a36db7c57c2e5e981d0b))
+* Tabs 标签 ([#1002](https://github.com/volantis-x/hexo-theme-volantis/issues/1002)) ([3f8d075](https://github.com/volantis-x/hexo-theme-volantis/commit/3f8d0755a3a2fdbb85f1f1a251a041b44b8942bd))
+* volantis v6 标签插件 命令解析器 同时兼容 volantis v5、volantis v4、 stellar v1 的插件参数写法 ([#999](https://github.com/volantis-x/hexo-theme-volantis/issues/999)) ([174e8e4](https://github.com/volantis-x/hexo-theme-volantis/commit/174e8e407d8d328ff5ac1ae9ff0c6dcecd1f3b50))
+* 合并stellar配色方案 ([#1007](https://github.com/volantis-x/hexo-theme-volantis/issues/1007)) ([48ecdb0](https://github.com/volantis-x/hexo-theme-volantis/commit/48ecdb0f5f99fa96fc762a216a237d0ae40e921a))
+* 配置文件变更 sidebar.widget_library 移入 _data/widgets.yml ; _cdn.yml 移入 _data/cdn.yml ([#1008](https://github.com/volantis-x/hexo-theme-volantis/issues/1008)) ([354fe3e](https://github.com/volantis-x/hexo-theme-volantis/commit/354fe3e2347160b71f1cba89645de7c5392f410d))
+* 页面插件新增 mermaid ([#1001](https://github.com/volantis-x/hexo-theme-volantis/issues/1001)) ([b586be9](https://github.com/volantis-x/hexo-theme-volantis/commit/b586be995d5dee54488d0ecc22334ce956d61a28))
+
+
+### Bug Fixes
+
+* GLOBAL CONFIG ([#1003](https://github.com/volantis-x/hexo-theme-volantis/issues/1003)) ([b0deeec](https://github.com/volantis-x/hexo-theme-volantis/commit/b0deeece0d7fbf6a519f59160b16501261897a0a))
+* img.error hight ([e5e2b66](https://github.com/volantis-x/hexo-theme-volantis/commit/e5e2b66756acd92c5d2bbc7275f60ddb2aa8ab3d))
+* pjax for sticky ([#1005](https://github.com/volantis-x/hexo-theme-volantis/issues/1005)) ([b2257b9](https://github.com/volantis-x/hexo-theme-volantis/commit/b2257b91eede1f7b1ad104656ce9f9832415cee1))
+
+## [6.5.0](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.4.0...v6.5.0) (2026-07-22)
+
+
+### Features
+
+* [#902](https://github.com/volantis-x/hexo-theme-volantis/issues/902) 图片错误降级 ([#997](https://github.com/volantis-x/hexo-theme-volantis/issues/997)) ([1468605](https://github.com/volantis-x/hexo-theme-volantis/commit/1468605bbf2404429e14e1c42e97e69f73d47797))
+* 代码翻新和注释 from inkss ([#994](https://github.com/volantis-x/hexo-theme-volantis/issues/994)) ([8987eb3](https://github.com/volantis-x/hexo-theme-volantis/commit/8987eb300566335d44fc412bc62189df26d2c413))
+* 页面插件新增heti ([#996](https://github.com/volantis-x/hexo-theme-volantis/issues/996)) ([05e0ac8](https://github.com/volantis-x/hexo-theme-volantis/commit/05e0ac8d197dbcff743ebbaa1d6c8664de5989da))
+
+
+### Bug Fixes
+
+* i18n ([#998](https://github.com/volantis-x/hexo-theme-volantis/issues/998)) ([8a17445](https://github.com/volantis-x/hexo-theme-volantis/commit/8a174453dbd26075d8002601bce9ce416d3efefd))
+* 移除51_la ([2fff600](https://github.com/volantis-x/hexo-theme-volantis/commit/2fff600de606efd102efeed04e2cee2d1f4c91fa))
+
+## [6.4.0](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.3.0...v6.4.0) (2026-07-20)
+
+
+### Features
+
+* mathjax v4 ([#992](https://github.com/volantis-x/hexo-theme-volantis/issues/992)) ([c7638d1](https://github.com/volantis-x/hexo-theme-volantis/commit/c7638d17d267aba1891d8825c81fb480f4dd7312))
+
+## [6.3.0](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.2.0...v6.3.0) (2026-07-19)
+
+
+### Features
+
+* 新增NProgress ([#987](https://github.com/volantis-x/hexo-theme-volantis/issues/987)) ([8b914a1](https://github.com/volantis-x/hexo-theme-volantis/commit/8b914a16220f55dd93c0db3c2667f9416c015fd8))
+
+
+### Bug Fixes
+
+* [#980](https://github.com/volantis-x/hexo-theme-volantis/issues/980) ([#989](https://github.com/volantis-x/hexo-theme-volantis/issues/989)) ([34203e5](https://github.com/volantis-x/hexo-theme-volantis/commit/34203e517be79395c3d2d06bf73d78eb754cfeaf))
+* [#984](https://github.com/volantis-x/hexo-theme-volantis/issues/984) ([#986](https://github.com/volantis-x/hexo-theme-volantis/issues/986)) ([6931b09](https://github.com/volantis-x/hexo-theme-volantis/commit/6931b0958778d988b72e2a051fd27345316f7f53))
+* swiper ([#988](https://github.com/volantis-x/hexo-theme-volantis/issues/988)) ([7697702](https://github.com/volantis-x/hexo-theme-volantis/commit/7697702856508788c00c3bc2c01ce9b478a9f8f5))
+* 移除 gitter ([#983](https://github.com/volantis-x/hexo-theme-volantis/issues/983)) ([8c4c338](https://github.com/volantis-x/hexo-theme-volantis/commit/8c4c338bada4e81e3905ba8992245946524ec66e))
+
+## [6.2.0](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.1.0...v6.2.0) (2026-07-17)
+
+
+### Features
+
+* 合并 7.x alpha 到 6.x ([#976](https://github.com/volantis-x/hexo-theme-volantis/issues/976)) ([9a942ff](https://github.com/volantis-x/hexo-theme-volantis/commit/9a942fff205619b532dfca0aefa25c8f318b47cb))
+
+
+### Bug Fixes
+
+* 修复fancybox的error ([#978](https://github.com/volantis-x/hexo-theme-volantis/issues/978)) ([1183a55](https://github.com/volantis-x/hexo-theme-volantis/commit/1183a55ad277a79dcf089a3d645451e990ace7ba))
+* 修复启用imgcover并禁用hide_excerpt时页面错乱的问题 ([#977](https://github.com/volantis-x/hexo-theme-volantis/issues/977)) ([a59d020](https://github.com/volantis-x/hexo-theme-volantis/commit/a59d020a94665837073fa60af097eb45d53a4d24))
+
+## [6.1.0](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.0.6...v6.1.0) (2026-07-16)
+
+
+### Features
+
+* readmore 支持全局关闭 ([af50455](https://github.com/volantis-x/hexo-theme-volantis/commit/af50455d8827e82303caf269f600ef00fb8c7f4c))
+* Sidebar 配置变更 ([af50455](https://github.com/volantis-x/hexo-theme-volantis/commit/af50455d8827e82303caf269f600ef00fb8c7f4c))
+* 新增 wiki，笔记，专栏 ([#974](https://github.com/volantis-x/hexo-theme-volantis/issues/974)) ([af50455](https://github.com/volantis-x/hexo-theme-volantis/commit/af50455d8827e82303caf269f600ef00fb8c7f4c))
+* 自动生成404，标签，分类页面 ([af50455](https://github.com/volantis-x/hexo-theme-volantis/commit/af50455d8827e82303caf269f600ef00fb8c7f4c))
+
+
+### Bug Fixes
+
+* [#935](https://github.com/volantis-x/hexo-theme-volantis/issues/935) ([95223b7](https://github.com/volantis-x/hexo-theme-volantis/commit/95223b73b57a54069d274aba3ba2521dbfeb520d))
+
+## [6.0.6](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.0.5...v6.0.6) (2026-07-12)
+
+
+### Bug Fixes
+
+* [#840](https://github.com/volantis-x/hexo-theme-volantis/issues/840) ([c076ef0](https://github.com/volantis-x/hexo-theme-volantis/commit/c076ef0825696b118df7be6bc83448d5bef062c7))
+* [#888](https://github.com/volantis-x/hexo-theme-volantis/issues/888) ([4db506f](https://github.com/volantis-x/hexo-theme-volantis/commit/4db506fc14e387c47290bb53d93ff149db7d5721))
+* [#923](https://github.com/volantis-x/hexo-theme-volantis/issues/923) [#866](https://github.com/volantis-x/hexo-theme-volantis/issues/866) ([1076c15](https://github.com/volantis-x/hexo-theme-volantis/commit/1076c15fd076d9eace0cb79583163c46afda5079))
+* [#928](https://github.com/volantis-x/hexo-theme-volantis/issues/928) ([00765ac](https://github.com/volantis-x/hexo-theme-volantis/commit/00765ac90af02358b90bf6ffb248ac5f39b66f3f))
+* [#967](https://github.com/volantis-x/hexo-theme-volantis/issues/967) ([acb334f](https://github.com/volantis-x/hexo-theme-volantis/commit/acb334f4944ef72c4c54d6fa3ce85f2991419292))
+
+## [6.0.5](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.0.4...v6.0.5) (2026-07-08)
+
+
+### Bug Fixes
+
+* 修复锚点定位 ([f589671](https://github.com/volantis-x/hexo-theme-volantis/commit/f58967153414817eafc59fceb48b60184f6f3dd9))
+
+## [6.0.4](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.0.3...v6.0.4) (2026-06-09)
+
+
+### Bug Fixes
+
+* bootcdn被投毒 ([e8f7c33](https://github.com/volantis-x/hexo-theme-volantis/commit/e8f7c33dddb2d23066e12ce81ad168bc0e3da0a1))
+
+## [6.0.3](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.0.2...v6.0.3) (2026-05-17)
+
+
+### Bug Fixes
+
+* debounce ([#969](https://github.com/volantis-x/hexo-theme-volantis/issues/969)) ([faf3590](https://github.com/volantis-x/hexo-theme-volantis/commit/faf35904b8fcb25f888314c9031af5f7fda26526))
+
+## [6.0.2](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.0.1...v6.0.2) (2025-11-21)
+
+
+### Bug Fixes
+
+* offsetHeight ([746201a](https://github.com/volantis-x/hexo-theme-volantis/commit/746201af1da5afa04800d8d83dfeb014b87014d7))
+* remove noarchive ([dc40369](https://github.com/volantis-x/hexo-theme-volantis/commit/dc403691071a07cb433de34becdb0d35e59c9afa))
+
+## [6.0.1](https://github.com/volantis-x/hexo-theme-volantis/compare/v6.0.0...v6.0.1) (2025-11-17)
+
+
+### Bug Fixes
+
+* escape_html & strip_html ([#964](https://github.com/volantis-x/hexo-theme-volantis/issues/964)) ([2c9b4b0](https://github.com/volantis-x/hexo-theme-volantis/commit/2c9b4b00df3dcd73d1337fbf6abcc63695b824ca))
+
+## [6.0.0](https://github.com/volantis-x/hexo-theme-volantis/compare/6.0.0...v5.8.1) (2025-11-14)
+
+
+### Bug Fixes
+
+* pjax ([#950](https://github.com/volantis-x/hexo-theme-volantis/issues/950)) ([01489d0](https://github.com/volantis-x/hexo-theme-volantis/commit/01489d0a09a572a18e90afd693d3247508139885))
+* pjax 修复内存泄露引起的页面卡顿问题 ([204b01f](https://github.com/volantis-x/hexo-theme-volantis/commit/204b01f89245361e9cbaf42451e703a2120b7a78))
+
 ## [5.7.6](https://github.com/volantis-x/hexo-theme-volantis/compare/v5.7.5...v5.7.6) (2022-09-05)
 
 

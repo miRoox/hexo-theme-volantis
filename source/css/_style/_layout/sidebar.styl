@@ -1,3 +1,6 @@
+// 侧边栏样式
+
+// 侧边栏布局
 #l_side
   width: $sidebar
   float: right
@@ -58,7 +61,7 @@
     &,a
       color: var(--color-meta)
     >a:hover
-      color: $color-hover
+      color: var(--accent)
 
     span.name
       margin-left: $gap * 0.5
@@ -92,20 +95,20 @@
           flex:none
           font-weight: normal
           font-size: $fontsize-meta
-          color: alpha($color-text, .7)
+          color: var(--color-text-a70)
         &.active
-          border-left: $border-line solid $color-theme
+          border-left: $border-line solid var(--theme)
           list_active()
           .badge
-            color: alpha($color-theme, .9)
+            color: var(--theme-a90)
         &.child
           padding-left: $gap * 2
         &:hover
-          border-left: $border-line solid $color-theme
+          border-left: $border-line solid var(--theme)
           list_hover()
 
 
-
+  // 博主信息卡片
   &.blogger
     trans()
     .content
@@ -167,7 +170,7 @@
           padding: 0
           trans()
           &:hover
-            color: $color-hover
+            color: var(--accent)
           &.social
             display: flex
             justify-content: center
@@ -178,7 +181,7 @@
             border-radius: 100px
             &:hover
               background: bgcolor($color-theme)
-              color: $color-theme
+              color: var(--theme)
 
         @media screen and (max-width: $device-tablet)
           justify-content: center
@@ -189,10 +192,10 @@
       background: transparent !important
       margin-top: 2 * $gap
       backdrop-filter: none
-      color: var(--color-site-inner)
+      //color: var(--color-site-inner)
 
 
-
+  // 文本组件
   &.text
     .content
       &,p
@@ -200,14 +203,14 @@
         word-break: break-all
       padding: $gap * 0.25 $gap
       a
-        color: $color-link
+        color: var(--link)
         trans()
         &:hover
-          color: $color-hover
+          color: var(--accent)
         &:active
           color: darken($color-hover, 25%)
 
-
+  // 列表组件
   &.list
     .content
       padding: $gap * 0.5 0
@@ -229,7 +232,7 @@
           &#round
             border-radius: 100%
 
-
+  // 宫格组件
   &.grid
     .content
       .grid
@@ -248,7 +251,7 @@
           align-items: center
           font-size: $fontsize-footnote
           font-weight: bold
-          color: alpha($color-text, 70%)
+          color: var(--color-text-a70)
           line-height: 1.5
           word-wrap: break-word
           i
@@ -281,7 +284,7 @@
           @media screen and (max-width: $device-mobile-m)
             width: "calc(100%/3 - 0 * %s)" % $gap
 
-
+  // 标签云组件
   &.tagcloud
     .content
       text-align: justify
@@ -293,11 +296,11 @@
         margin: 4px 0
         border-bottom: 1px solid transparent
         &:hover
-          color: $color-hover !important //to cover inline style.
-          border-bottom: 1px solid $color-hover
+          color: var(--accent) !important //to cover inline style.
+          border-bottom: 1px solid var(--accent)
 
 
-
+  // 相关文章组件
   &.related_posts
     .content
       font-weight: bold
@@ -314,7 +317,7 @@
           padding-bottom: 4px
 
 
-
+  // 二维码组件
   &.qrcode
     .content
       display: flex
@@ -333,7 +336,7 @@
     padding-left: $gap - 4px
     padding-right: $gap - 4px
 
-
+// 网站信息组件
 .webinfo
   padding 0.2rem 1rem
   .webinfo-item
@@ -364,6 +367,84 @@
   top: $navbar-height + $gap
   z-index 10
 
+// tag-tree
+.widget-body.tag-tree .tag-subtree > a > .tag-switcher-wrapper
+  width: 1.75rem
+  height: 0.875rem
+  display: flex
+  justify-content: end
+  align-items: center
+  &:hover
+    color: var(--color-list-hl)
+
+.widget-body.tag-tree .tag-subtree.parent-tag > a .tag-switcher
+  display: inline-block
+  height: 0.5rem
+  width: 0.5rem
+  border-width: 1px
+  border-style: none solid solid none
+  transform: translateX(-25%) rotate(-45deg)
+
+.widget-body.tag-tree .tag-subtree.parent-tag.expanded > a .tag-switcher
+  transform: translateY(-25%) rotate(45deg)
+
+.widget-body.tag-tree .tag-subtree.parent-tag > .tag-subtree
+  display: none
+
+.widget-body.tag-tree .tag-subtree.parent-tag.expanded > .tag-subtree
+  display: block
+
+.widget-body.tag-tree .tag-subtree .tagcon
+  font-size: smaller
+  opacity: 0.4
+  margin-right: 0.25rem
+
+.widget-body a
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 6px 16px
+  color: var(--color-list)
+  &:hover
+    border-left: $border-line solid var(--theme)
+    list_hover()
+
+.widget-body a.active
+  border-left: $border-line solid var(--theme)
+  list_active()
+
+.widget-wrapper
+  .widget-header
+    border-top-left-radius: $border-card
+    border-top-right-radius: $border-card
+    padding: "calc(%s - 2px)" % $gap
+    font-weight: bold
+    font-size: $fontsize-meta
+    padding-bottom: 0
+    &,a
+      color: var(--color-list)
+    >a:hover
+      color: var(--accent)
+    span.name
+      margin-left: $gap * 0.5
+    .item 
+      display: block
+    >span
+      text-align: left
+      opacity 0.6
+    &:empty
+      display: none
+
+  .widget-body
+    p
+      margin-top: .5em
+      margin-bottom: .5em
+      line-height: 1.5
+
+
+
+
+// bb  talk
 .bber-talk
   padding 0.2rem 1rem
   :hover

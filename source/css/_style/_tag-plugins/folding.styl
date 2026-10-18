@@ -1,3 +1,5 @@
+// 折叠区块样式（details/summary 标签）
+// v5
 details
   display: block
   padding: $gap
@@ -6,12 +8,13 @@ details
   background: var(--color-card)
   font-size: $fontsize-list
   trans()
+  // 折叠标题栏：悬停时显示 + 号提示
   summary
     cursor: pointer
     padding: $gap
     margin: 0 - $gap
     border-radius: $border-codeblock
-    color: alpha($color-p, .7)
+    color: var(--color-p-a70)
     font-size: $fontsize-meta
     font-weight: bold
     position: relative
@@ -29,10 +32,11 @@ details
         top: 50%
         transform: translateY(-50%)
         right: $gap
-
+  // 默认边框和背景
   border: 1px solid var(--color-block)
   >summary
     background: var(--color-block)
+  // 颜色变体：蓝/青/绿/黄/红
   &[blue]
     border-color: bgcolor($color-md-blue)
     >summary
@@ -53,9 +57,9 @@ details
     border-color: bgcolor($color-mac-red)
     >summary
       background: bgcolor($color-mac-red)
-
+// 展开状态：显示分隔线，标题栏切换为 - 号
 details[open]
-  border-color: alpha($color-p, .2)
+  border-color: var(--color-p-a20)
   >summary
     border-bottom: 1px solid alpha($color-p, .2)
     border-bottom-left-radius: 0
@@ -86,6 +90,7 @@ details[open]
     &:hover
       &:after
         content: '-'
+  // 展开内容区域：弹跳动画 + 子元素首尾去边距
   >div.content
     padding: $gap
     margin: 0 - $gap
@@ -98,3 +103,101 @@ details[open]
           margin-top: 0
         &:last-child
           margin-bottom: 0
+
+
+// v6
+details.folding
+  display: block
+  padding: 1rem
+  margin: 1rem 0
+  border-radius: $border-card
+  corner-shape: superellipse(1.2)
+  background: var(--theme-block)
+  border: 1px solid var(--theme-border)
+  summary
+    cursor: pointer
+    padding: 1rem
+    margin: -1rem
+    color: var(--text-p2)
+    font-weight: 500
+    --fsp: $fsp2
+    font-size: var(--fsp)
+    position: relative
+    line-height: 1.2
+    outline: none
+    >
+      span 
+        margin-left: 0.25em
+      p,h1,h2,h3,h4,h5,h6
+        display: inline
+        border-bottom: none !important
+    &:hover
+      color: var(--text)
+    &:after
+      position: absolute
+      content: '+'
+      text-align: center
+      top: 50%
+      transform: translateY(-50%)
+      right: 1rem
+      line-height: 1
+
+
+details.folding[open]
+  >summary
+    color: var(--text-p1)
+    font-weight: 700
+    z-index 1
+    &:after
+      content: '-'
+  >div.body
+    padding: 0 1rem 1rem
+    margin: 0 -1rem -1rem
+    color: var(--text-p1)
+    --fsp: $fsp1
+    >:first-child
+      margin-top: 1rem
+    >:last-child
+      margin-bottom: 0
+
+details.folding[child=codeblock]>div.body
+  padding: 0
+  background: transparent
+  overflow: hidden
+  .highlight
+    border: none
+    border-radius: 0
+    background: transparent
+    margin: 0
+    figcaption
+      display: none
+      span
+        background: var(--theme-block)
+    .code:before
+      content: none
+  .highlight+.highlight
+    border-top: 1px dashed var(--theme-border)
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+
+details.folding[child=iframe]
+  overflow: hidden
+  background: none
+  >summary
+    background: none
+  >div.body
+    padding: 0
+    background: none
+    overflow: hidden
+
+// 解决 v5 和 v6 的样式冲突
+.tag-plugin
+  details >summary
+    background: unset
+  details[open] >summary
+    border-bottom: unset
+details.tag-plugin >summary
+  background: unset
+details[open].tag-plugin >summary
+  border-bottom: unset
+

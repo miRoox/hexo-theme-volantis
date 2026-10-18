@@ -1,4 +1,8 @@
 /**
+ * 上次修改更新：6.2.0 | https://github.com/volantis-x/hexo-theme-volantis
+ *
+ */
+/**
  * sites.js v1 | https://github.com/xaoxuu/hexo-theme-stellar/
  * 格式与官方标签插件一致使用空格分隔，中括号内的是可选参数（中括号不需要写出来）
  *
@@ -7,7 +11,7 @@
 
 'use strict';
 
-hexo.extend.tag.register('sites', function(args) {
+hexo.extend.tag.register('sites', function (args) {
   args = hexo.args.map(args, ['only', 'not', 'repo', 'api']);
   if (args.only) {
     args.only = args.only.split(',');
@@ -31,10 +35,10 @@ hexo.extend.tag.register('sites', function(args) {
   function groupHeader(group) {
     var header = '<div class="group-header">';
     if (group.title) {
-      header += hexo.render.renderSync({text: group.title, engine: 'markdown'}).split('\n').join('');
+      header += hexo.render.renderSync({ text: group.title, engine: 'markdown' }).split('\n').join('');
     }
     if (group.description) {
-      header += hexo.render.renderSync({text: group.description, engine: 'markdown'}).split('\n').join('');
+      header += hexo.render.renderSync({ text: group.description, engine: 'markdown' }).split('\n').join('');
     }
     header += '</div>';
     return header;

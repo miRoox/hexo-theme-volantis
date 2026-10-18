@@ -12,10 +12,23 @@
   <% } %>
 <% }) %>
 
-<div class="widget-sticky">
+<div class="widget-sticky pjax">
 <% if(widget_library_temp.length !== 0) { %>
   <% widget_library_temp.forEach( w => { %>
   <%- partial(w.class, {item: w, where: where}) %>
   <% }) %>
 <% } %>
 </div>
+
+<%
+  Object.keys(theme.sidebar.widget_library).forEach(function(key) {
+    if (!page.sidebar.includes(key)) {
+      let w = theme.sidebar.widget_library[key];
+      if (w.sticky !== true && w.pjaxReload !== false) {
+%>
+<div class="widget pjax"><!-- pjax占位 <%- key %>--></div>
+<%
+      }
+    }
+  })
+%>

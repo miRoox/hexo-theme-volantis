@@ -1,4 +1,8 @@
+// 提示框/注释框样式（note tag plugin）
+// v5
+// 提示框 边框 + 圆角 + 间距
 div.note
+  // 颜色辅助函数：bg 混合背景色，border 混合边框色
   $border-codeblock = 4px
   bg($c)
     return mix($c, $color-card, 10)
@@ -34,6 +38,7 @@ div.note
     margin-bottom: $gap-p * 0.5
   .link-card
     background: var(--color-card)
+  // 通过 ::before 伪元素显示图标
   &::before
     position: absolute
     top: "calc(50% - %s * 0.5)" % (24px)
@@ -60,7 +65,7 @@ div.note
       border-color: border($c)
       &::before
         color: border($c)
-
+  // 语义化颜色变体：引用/信息/成功/警告/错误
   &.quote
     background: bg($color-md-blue)
     border-color: border($color-md-blue)
@@ -91,6 +96,7 @@ div.note
     &::before
       color: border($color-mac-red)
       content: '\f00d'
+  // 特殊图标变体：辐射/虫子/灯泡/链接/回形针等
   &.radiation::before
     content: '\f7b9'
   &.bug::before
@@ -116,7 +122,7 @@ div.note
   &.play::before
     content: '\f144'
 
-
+  // 纯色变体：清除/浅灰/灰色/主题色/红/黄/绿/青/蓝
   &.clear
     background: none
     border-color: none
@@ -160,3 +166,81 @@ div.note
     border-color: border($color-md-blue)
     &::before
       color: border($color-md-blue)
+// v6
+.md .tag-plugin.note
+  &::before
+    content: unset
+  position: relative
+  padding: 0.25rem 1rem
+  border-radius: $border-card
+  corner-shape: superellipse(1.2)
+  background: var(--theme-block)
+  overflow: hidden
+  if hexo-config('tag_plugins.Note.border') == true
+    border: 1px solid var(--theme-border)
+  color: var(--text-p1)
+  >.title
+    --fsp: $fsp1
+    font-size: var(--fsp)
+    line-height: 1.5
+    margin-top: var(--gap-p-compact)
+    font-weight: 500
+    color: var(--text)
+  >.body
+    &,p
+      --fsp: $fsp2
+      font-size: var(--fsp)
+      line-height: 1.5
+    margin-top: var(--gap-p-compact)
+    margin-bottom: var(--gap-p-compact)
+  >.body:only-child
+    margin: 'calc(%s - 0.25rem)' % var(--gap-p) 0
+
+
+.md .tag-plugin.note[color]
+  code
+    background: none
+.md .tag-plugin.note[child=codeblock]
+  padding: 0
+  background: var(--theme-codeblock)
+  >.title, >.body:only-child
+    margin-top: 0
+  >.body
+    margin-bottom: 0
+  .highlight
+    margin: 0
+    border: none
+    background: none
+    figcaption
+      span
+        background: var(--theme-block)
+  .highlight+.highlight
+    border-top: 1px dashed var(--theme-border)
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+
+.md .tag-plugin.note[child=tabs]
+  >.body
+    margin: 0
+    >.tabs
+      margin-top: .5rem
+
+.md .tag-plugin.note[child=iframe]
+  padding: 0
+  >.body
+    margin: 0
+    iframe
+      margin: 0
+
+
+.md .tag-plugin .tag-plugin.note
+  --gap-p: 1rem
+
+//#l_body[type=story] .tag-plugin.note .title p:not([class])
+//  text-indent: 0
+
+.md .tag-plugin.note
+  .highlight figcaption
+    background: unset
+  .highlight:hover figcaption
+    background: unset

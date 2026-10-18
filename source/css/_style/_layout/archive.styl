@@ -1,3 +1,4 @@
+// 归档页面样式
 article
   &#arc,&#cat,&#tag
     padding-top: $gap * 3
@@ -40,7 +41,7 @@ article#arc
         width: 60px
       i
         line-height: 1.5
-        color: $color-hover
+        color: var(--accent)
         &.red
           color: $color-mac-red
         &.green
@@ -52,7 +53,7 @@ article#arc
         &.theme
           color: $color-theme
         &.accent
-          color: $color-hover
+          color: var(--accent)
         &.orange
           color: $color-md-deep-orange
 
@@ -101,7 +102,7 @@ article#tag
           background: var(--color-block)
           font-weight: 500
           &:hover
-            background: $color-hover
+            background: var(--accent)
             color: $color-inner
         span
           &:before

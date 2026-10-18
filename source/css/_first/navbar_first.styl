@@ -1,3 +1,6 @@
+// 导航栏样式
+
+// 桌面端导航栏
 .l_header
   $iconW = 36px
   $iconMargin = 4px
@@ -101,7 +104,7 @@
         border-radius: 100px
         border: none
         trans()
-        color: $color-theme
+        color: var(--theme)
         &:hover
           border: none
         &.active,&:active
@@ -114,6 +117,7 @@
   .nav-sub .switcher
     display: flex
 
+  // 搜索栏
   .m_search
     display: flex
     height: $navbar-height
@@ -161,7 +165,7 @@
       line-height: 1.3
       width: 100%
       color: var(--color-text)
-      background: darken($color-card, 2)
+      background: var(--color-card-darken2)
       box-shadow: none
       box-sizing: border-box
       padding-left: $iconW + $iconMargin
@@ -186,7 +190,7 @@
       width: 0
       overflow: hidden
       position: absolute
-      background: lighten($color-card, 5)
+      background: var(--color-card-lighten5)
       trans()
       .input
         border-radius: $navbar-height * 0.5
@@ -197,13 +201,13 @@
         width: 100%
         .input
           width: "calc(100% - %s)" % (3 * $gap + 2 * $iconW)
-
+// 导航菜单列表
 ul.m-pc
   >li>a
     color: inherit
     border-bottom: 2px solid transparent
     &:active,&.active
-      border-bottom: 2px solid $color-theme
+      border-bottom: 2px solid var(--theme)
 ul.m-pc,ul.list-v
   li:hover
     >ul.list-v
@@ -292,7 +296,7 @@ ul.list-v
     overflow: hidden
     color: inherit
     &:active,&.active
-      color: $color-theme
+      color: var(--theme)
   &:hover>a
     color: var(--color-list-hl)
   i.music
@@ -337,7 +341,7 @@ ul.list-v
       ul
         right: "calc(100% - 0.5 * %s)" % $gap
 
-
+// 移动端导航栏
 .menu-phone
   display: none
   margin-top: $gap

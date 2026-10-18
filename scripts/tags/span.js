@@ -1,10 +1,14 @@
+/**
+ * 上次修改更新：5.0 | https://github.com/volantis-x/hexo-theme-volantis
+ *
+ */
 'use strict';
 
 function postP(args) {
-  if(/::/g.test(args)){
+  if (/::/g.test(args)) {
     args = args.join(' ').split('::');
   }
-  else{
+  else {
     args = args.join(' ').split(',');
   }
   const p0 = args[0].trim();
@@ -12,10 +16,10 @@ function postP(args) {
   return `<p class='p ${p0}'>${p1}</p>`;
 }
 function postSpan(args) {
-  if(/::/g.test(args)){
+  if (/::/g.test(args)) {
     args = args.join(' ').split('::');
   }
-  else{
+  else {
     args = args.join(' ').split(',');
   }
   const p0 = args[0].trim();
